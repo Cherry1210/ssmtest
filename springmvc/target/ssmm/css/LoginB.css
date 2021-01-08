@@ -1,0 +1,159 @@
+*{
+	padding:0;
+	margin:0;
+}
+
+html{
+	height:100%;
+}
+body{ 
+	background-color:white;
+}
+
+
+.login-container{
+	width:600px;
+	height:315px;
+	margin:0 auto;
+	margin-top:20%;
+	border-radius:15px; 
+	box-shadow:0 10px 50px 0  rgb(59,45,159);
+	background-color:rgb(95,76,194);
+}
+
+.login-container  .left-container{
+	display:inline-block;
+	width:330px;
+	border-top-left-radius:15px;
+	border-bottom-left-radius:15px;
+	padding:60px;
+ 	background-image:linear-gradient(to bottom right, rgb(118,76,163),rgb(92,103,211));
+}
+
+.login-container  .left-container   .title{
+	color:#fff;
+	font-size:18px;
+	font-weight:200;
+}
+
+
+.login-container  .left-container   .title span{
+	border-bottom:3px solid rgb(237,221,22);
+}
+	
+.login-container  .left-container   .input-container{
+	padding:20px 0;
+}
+
+
+.login-container  .left-container   .input-container input{
+	border:0;
+	width:100%;
+	display:block;
+	outline:0;
+	color: #fff;
+	margin:20px 0;
+	padding:5px 0;
+	transition: .2s;
+	border-bottom:1px solid rgb(199,191,219);
+	background:none;
+}
+
+.login-container  .left-container   .input-container input:hover{
+	
+	border-bottom-color:#fff;
+}
+
+ input::-webkit-input-placeholder{
+	color:rgb(199,191,219);
+}
+
+.login-container  .right-container {
+	width:145px;
+	display:inline-block;	
+	height:calc(100%-120px);
+	vertical-align:top;
+	padding:60px 0;
+}
+
+.login-container  .right-container .regist-container{
+	 text-align:center;
+	 color:#fff;
+	 font-size:18px; 
+	 font-weight:200;
+}
+
+.login-container  .right-container .regist-container span{
+	border-bottom:3px solid rgb(237,221,22);
+}
+
+.login-container  .left-container  .message-container{
+	font-size:14px;
+	transition:.2s;
+	cursor:pointer;
+	color:rgb(199,191,219);
+}
+
+.login-container  .left-container  .message-container:hover{
+	color:#fff;
+}
+
+
+.login-container  .right-container .action-container{
+	font-size:13px;
+	color:#fff;
+	position:relative;
+	height:100%;
+}
+
+
+.login-container  .right-container .action-container span{
+	border:1px solid rgb(237,221,22);
+	padding:10px;
+	display:inline;
+	line-height:25px;
+	border-radius:100px; 
+	position:absolute;
+	bottom:-130px;
+	left:calc(100%-65px); 
+	transition:.2s;
+	cursor:pointer;
+}
+
+#round{
+	border:1px solid rgb(237,221,22);
+	padding:10px;
+	display:inline;
+	line-height:25px;
+	border-radius:100px; 
+	position:absolute;
+	bottom:-130px;
+	left:calc(100%-65px); 
+	transition:.2s;
+	cursor:pointer;
+	background-color:rgb(237,221,22);
+	color:rgb(95,76,194);
+}
+.login-container  .right-container .action-container span:hover{
+	background-color:rgb(237,221,22);
+	color:rgb(95,76,194);
+}
+
+a:link{
+	color:rgb(237,221,22);
+	text-decoration:none;
+}
+
+a:hover{
+	color:rgb(237,221,22);
+	text-decoration:none;
+}
+
+a:visited{
+	color:rgb(237,221,22);
+	text-decoration:none;
+}
+
+.radio-box{
+	margin-top:20px;
+}

@@ -1,0 +1,115 @@
+  #TabMain {
+    width: 1000px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 0px;
+    /*border: 1px solid #ff6f8a;*/
+}
+#TabMain img{
+    width: 80px;
+    height: 110px;
+    margin: 0 auto;
+    position: absolute;
+    margin-left: 17%;
+}
+#TabMain img:hover{
+    opacity: 0.8;
+    cursor: pointer;
+
+}
+.s1 span{
+    /*margin-left: 10px;*/
+    position:absolute;
+    bottom: 15px;
+    margin: 0 auto;
+    color:#ff6f8a;
+    left: 57%;
+    margin-left: -50px;
+}
+.s1 span:hover{
+    cursor: pointer;
+}
+.s1
+{
+    left: 20px;
+    width: 180px;
+    margin: 0 auto;
+    height: 150px;
+    float: left;
+    position:relative;
+}
+.tabItemContainer {
+    width: 100px;
+    height: 298px;
+    float: left;
+    margin-top:2px;
+    border: 1px solid #ff6f8a;
+}
+.tabBodyContainer {
+    /*position:relative;*/
+    margin-top:2px;
+    width: 890px;
+    height: 298px;
+    float: left;
+    background-color: #fff;
+    border: 1px solid #ff6f8a;
+    /*-webkit-border-radius: 0 5px 5px 0;*/
+    /*-moz-border-radius: 0 5px 5px 0;*/
+    /*border-radius: 0 5px 5px 0;*/
+    margin-left: 1px;
+}
+.tabItemContainer>li {
+    /*height: px;*/
+    list-style: none;
+    text-align: center;
+     position:relative;
+
+}
+.tabItemContainer>li>a {
+     margin-top:1px;
+    background-color:#ff6f8a;
+    float: left;
+    width: 100%;
+    padding: 18px 0 18px 0;
+    font: 16px "微软雅黑", Arial, Helvetica, sans-serif;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    border:1px solid transparent;
+    /*border-left: 1px solid #ff6f8a;*/
+    /*height: 60px;*/
+}
+.tabItemCurrent{
+    color:#ff6f8a !important;
+    background-color: #fff !important;
+    /*border-left: 1px solid #ff6f8a !important;*/
+    /*border-right: 1px solid #fff !important;*/
+    position: relative;
+    /*-webkit-border-radius: 5px 0 0 5px;*/
+    /*-moz-border-radius: 5px 0 0 5px;*/
+    /*border-radius: 5px 0 0 5px;*/
+}
+.tabItemContainer>li>a:hover {
+    background-color: #fff;
+    color:#ff6f8a;
+}
+.tabBodyItem {
+    position: absolute;
+    width: 677px;
+    height: 500px;
+    display: none;
+
+}
+.tabBodyItem>p {
+    font: 13px "微软雅黑", Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 30px;
+}
+.tabBodyItem>p>a {
+    text-decoration: none;
+    color: #0F3;
+}
+.tabBodyCurrent{
+    width:950px;
+    display:block;
+}

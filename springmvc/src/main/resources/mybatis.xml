@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 编写mybatis的一些信息：例如数据源的配置 ，现在有了spring之后，所有内容都移动到了spring的配置文件中  -->
+	<settings>
+		<setting name="logImpl" value="LOG4J"/>
+	</settings>
+	
+</configuration>
