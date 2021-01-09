@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.oracle.mapper.WorkerMapper" >
-  <resultMap id="BaseResultMap" type="com.oracle.pojo.Worker" >
-    <id column="worker_id" property="workerId" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="telnum" property="telnum" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
+<mapper namespace="com.oracle.mapper.ReviewMapper" >
+  <resultMap id="BaseResultMap" type="com.oracle.pojo.Review" >
+    <id column="review_id" property="reviewId" jdbcType="INTEGER" />
+    <result column="user_getid" property="userGetid" jdbcType="INTEGER" />
+    <result column="user_outid" property="userOutid" jdbcType="INTEGER" />
+    <result column="review_info" property="reviewInfo" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,15 +66,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    worker_id, name, telnum, password
+    review_id, user_getid, user_outid, review_info
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.oracle.pojo.WorkerExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.oracle.pojo.ReviewExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from worker
+    from review
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,76 +85,76 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from worker
-    where worker_id = #{workerId,jdbcType=INTEGER}
+    from review
+    where review_id = #{reviewId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from worker
-    where worker_id = #{workerId,jdbcType=INTEGER}
+    delete from review
+    where review_id = #{reviewId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.oracle.pojo.WorkerExample" >
-    delete from worker
+  <delete id="deleteByExample" parameterType="com.oracle.pojo.ReviewExample" >
+    delete from review
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.oracle.pojo.Worker" >
-    insert into worker (worker_id, name, telnum, 
-      password)
-    values (#{workerId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{telnum,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.oracle.pojo.Review" >
+    insert into review (review_id, user_getid, user_outid, 
+      review_info)
+    values (#{reviewId,jdbcType=INTEGER}, #{userGetid,jdbcType=INTEGER}, #{userOutid,jdbcType=INTEGER}, 
+      #{reviewInfo,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.oracle.pojo.Worker" >
-    insert into worker
+  <insert id="insertSelective" parameterType="com.oracle.pojo.Review" >
+    insert into review
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="workerId != null" >
-        worker_id,
+      <if test="reviewId != null" >
+        review_id,
       </if>
-      <if test="name != null" >
-        name,
+      <if test="userGetid != null" >
+        user_getid,
       </if>
-      <if test="telnum != null" >
-        telnum,
+      <if test="userOutid != null" >
+        user_outid,
       </if>
-      <if test="password != null" >
-        password,
+      <if test="reviewInfo != null" >
+        review_info,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="workerId != null" >
-        #{workerId,jdbcType=INTEGER},
+      <if test="reviewId != null" >
+        #{reviewId,jdbcType=INTEGER},
       </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
+      <if test="userGetid != null" >
+        #{userGetid,jdbcType=INTEGER},
       </if>
-      <if test="telnum != null" >
-        #{telnum,jdbcType=VARCHAR},
+      <if test="userOutid != null" >
+        #{userOutid,jdbcType=INTEGER},
       </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
+      <if test="reviewInfo != null" >
+        #{reviewInfo,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.oracle.pojo.WorkerExample" resultType="java.lang.Integer" >
-    select count(*) from worker
+  <select id="countByExample" parameterType="com.oracle.pojo.ReviewExample" resultType="java.lang.Integer" >
+    select count(*) from review
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update worker
+    update review
     <set >
-      <if test="record.workerId != null" >
-        worker_id = #{record.workerId,jdbcType=INTEGER},
+      <if test="record.reviewId != null" >
+        review_id = #{record.reviewId,jdbcType=INTEGER},
       </if>
-      <if test="record.name != null" >
-        name = #{record.name,jdbcType=VARCHAR},
+      <if test="record.userGetid != null" >
+        user_getid = #{record.userGetid,jdbcType=INTEGER},
       </if>
-      <if test="record.telnum != null" >
-        telnum = #{record.telnum,jdbcType=VARCHAR},
+      <if test="record.userOutid != null" >
+        user_outid = #{record.userOutid,jdbcType=INTEGER},
       </if>
-      <if test="record.password != null" >
-        password = #{record.password,jdbcType=VARCHAR},
+      <if test="record.reviewInfo != null" >
+        review_info = #{record.reviewInfo,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -162,35 +162,35 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update worker
-    set worker_id = #{record.workerId,jdbcType=INTEGER},
-      name = #{record.name,jdbcType=VARCHAR},
-      telnum = #{record.telnum,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR}
+    update review
+    set review_id = #{record.reviewId,jdbcType=INTEGER},
+      user_getid = #{record.userGetid,jdbcType=INTEGER},
+      user_outid = #{record.userOutid,jdbcType=INTEGER},
+      review_info = #{record.reviewInfo,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.pojo.Worker" >
-    update worker
+  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.pojo.Review" >
+    update review
     <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+      <if test="userGetid != null" >
+        user_getid = #{userGetid,jdbcType=INTEGER},
       </if>
-      <if test="telnum != null" >
-        telnum = #{telnum,jdbcType=VARCHAR},
+      <if test="userOutid != null" >
+        user_outid = #{userOutid,jdbcType=INTEGER},
       </if>
-      <if test="password != null" >
-        password = #{password,jdbcType=VARCHAR},
+      <if test="reviewInfo != null" >
+        review_info = #{reviewInfo,jdbcType=VARCHAR},
       </if>
     </set>
-    where worker_id = #{workerId,jdbcType=INTEGER}
+    where review_id = #{reviewId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.oracle.pojo.Worker" >
-    update worker
-    set name = #{name,jdbcType=VARCHAR},
-      telnum = #{telnum,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR}
-    where worker_id = #{workerId,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.oracle.pojo.Review" >
+    update review
+    set user_getid = #{userGetid,jdbcType=INTEGER},
+      user_outid = #{userOutid,jdbcType=INTEGER},
+      review_info = #{reviewInfo,jdbcType=VARCHAR}
+    where review_id = #{reviewId,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.oracle.mapper.WorkerMapper" >
-  <resultMap id="BaseResultMap" type="com.oracle.pojo.Worker" >
-    <id column="worker_id" property="workerId" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="telnum" property="telnum" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
+<mapper namespace="com.oracle.mapper.LikeMapper" >
+  <resultMap id="BaseResultMap" type="com.oracle.pojo.Like" >
+    <id column="like_id" property="likeId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="product_ids" property="productIds" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,15 +65,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    worker_id, name, telnum, password
+    like_id, user_id, product_ids
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.oracle.pojo.WorkerExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.oracle.pojo.LikeExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from worker
+    from like_
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,76 +84,67 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from worker
-    where worker_id = #{workerId,jdbcType=INTEGER}
+    from like_
+    where like_id = #{likeId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from worker
-    where worker_id = #{workerId,jdbcType=INTEGER}
+    delete from like_
+    where like_id = #{likeId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.oracle.pojo.WorkerExample" >
-    delete from worker
+  <delete id="deleteByExample" parameterType="com.oracle.pojo.LikeExample" >
+    delete from like_
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.oracle.pojo.Worker" >
-    insert into worker (worker_id, name, telnum, 
-      password)
-    values (#{workerId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{telnum,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.oracle.pojo.Like" >
+    insert into like_ (like_id, user_id, product_ids
+      )
+    values (#{likeId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{productIds,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.oracle.pojo.Worker" >
-    insert into worker
+  <insert id="insertSelective" parameterType="com.oracle.pojo.Like" >
+    insert into like_
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="workerId != null" >
-        worker_id,
+      <if test="likeId != null" >
+        like_id,
       </if>
-      <if test="name != null" >
-        name,
+      <if test="userId != null" >
+        user_id,
       </if>
-      <if test="telnum != null" >
-        telnum,
-      </if>
-      <if test="password != null" >
-        password,
+      <if test="productIds != null" >
+        product_ids,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="workerId != null" >
-        #{workerId,jdbcType=INTEGER},
+      <if test="likeId != null" >
+        #{likeId,jdbcType=INTEGER},
       </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
       </if>
-      <if test="telnum != null" >
-        #{telnum,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
+      <if test="productIds != null" >
+        #{productIds,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.oracle.pojo.WorkerExample" resultType="java.lang.Integer" >
-    select count(*) from worker
+  <select id="countByExample" parameterType="com.oracle.pojo.LikeExample" resultType="java.lang.Integer" >
+    select count(*) from like_
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update worker
+    update like_
     <set >
-      <if test="record.workerId != null" >
-        worker_id = #{record.workerId,jdbcType=INTEGER},
+      <if test="record.likeId != null" >
+        like_id = #{record.likeId,jdbcType=INTEGER},
       </if>
-      <if test="record.name != null" >
-        name = #{record.name,jdbcType=VARCHAR},
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
       </if>
-      <if test="record.telnum != null" >
-        telnum = #{record.telnum,jdbcType=VARCHAR},
-      </if>
-      <if test="record.password != null" >
-        password = #{record.password,jdbcType=VARCHAR},
+      <if test="record.productIds != null" >
+        product_ids = #{record.productIds,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -162,35 +152,30 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update worker
-    set worker_id = #{record.workerId,jdbcType=INTEGER},
-      name = #{record.name,jdbcType=VARCHAR},
-      telnum = #{record.telnum,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR}
+    update like_
+    set like_id = #{record.likeId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      product_ids = #{record.productIds,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.pojo.Worker" >
-    update worker
+  <update id="updateByPrimaryKeySelective" parameterType="com.oracle.pojo.Like" >
+    update like_
     <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
       </if>
-      <if test="telnum != null" >
-        telnum = #{telnum,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
-        password = #{password,jdbcType=VARCHAR},
+      <if test="productIds != null" >
+        product_ids = #{productIds,jdbcType=VARCHAR},
       </if>
     </set>
-    where worker_id = #{workerId,jdbcType=INTEGER}
+    where like_id = #{likeId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.oracle.pojo.Worker" >
-    update worker
-    set name = #{name,jdbcType=VARCHAR},
-      telnum = #{telnum,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR}
-    where worker_id = #{workerId,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.oracle.pojo.Like" >
+    update like_
+    set user_id = #{userId,jdbcType=INTEGER},
+      product_ids = #{productIds,jdbcType=VARCHAR}
+    where like_id = #{likeId,jdbcType=INTEGER}
   </update>
 </mapper>

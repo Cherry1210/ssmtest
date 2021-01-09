@@ -2,10 +2,8 @@ package com.oracle.mapper;
 
 import com.oracle.pojo.Worker;
 import com.oracle.pojo.WorkerExample;
-import com.oracle.util.workerlogin;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface WorkerMapper {
     int countByExample(WorkerExample example);
@@ -29,5 +27,4 @@ public interface WorkerMapper {
     int updateByPrimaryKeySelective(Worker record);
 
     int updateByPrimaryKey(Worker record);
-    Worker singin(workerlogin l);
 }
